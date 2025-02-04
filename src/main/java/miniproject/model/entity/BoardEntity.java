@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoardEntity extends BassTime{
+public class BoardEntity extends BaseTime {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bno; // 게시물 번호
