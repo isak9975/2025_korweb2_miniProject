@@ -6,7 +6,7 @@ import lombok.*;
 @Entity
 @Table(name = "member")
 @Getter @Setter @ToString @Builder @NoArgsConstructor @AllArgsConstructor
-public class MemberEntity extends BassTime {
+public class MemberEntity extends BassTime{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mno;
