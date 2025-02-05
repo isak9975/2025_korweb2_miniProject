@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BassTime {
+public class BaseTime {
 
     @CreatedDate
     private LocalDateTime cdate; // 엔티티 생성 날짜

@@ -2,11 +2,12 @@ package miniproject.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import miniproject.model.dto.MemberDto;
 
 @Entity
 @Table(name = "member")
 @Getter @Setter @ToString @Builder @NoArgsConstructor @AllArgsConstructor
-public class MemberEntity extends BassTime {
+public class MemberEntity extends BaseTime {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mno;
@@ -23,5 +24,13 @@ public class MemberEntity extends BassTime {
     @Column(nullable = false , unique = true , columnDefinition = "varchar(50)")
     private String memail;
 
-
+    // entity -> dto 변환 함수
+    public MemberDto toDto() {
+        return MemberDto.builder()
+                .mid(this.mid)
+                .mpwd(this.mpwd)
+                .mname(this.mname)
+                .memail(this.memail)
+                .build();
+    }
 }
