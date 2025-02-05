@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
 
     @PostMapping("/member/signup.do")
-    private boolean signup(@RequestBody )
+    private boolean signup(@RequestBody)
 
 }

@@ -2,6 +2,7 @@ package miniproject.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import miniproject.model.dto.BaordDto;
 
 @Entity
 @Table(name = "board")
@@ -32,6 +33,11 @@ public class BoardEntity extends BaseTime {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cno")
     private CategoryEntity categoryEntity; // 게시물 카테고리 번호(fk)
+
+    //Dto로 변환
+    public BaordDto toDto(){
+        return BaordDto.builder().bno(this.bno).btitle(this.btitle).bcontent(this.bcontent).bview(this.bview).mno(this.memberEntity.getMno()).cno(this.categoryEntity.getCno()).build();
+    }
 
 
 }
