@@ -1,0 +1,30 @@
+section {
+  width: 100%;
+  height: fit-content;
+  margin: 100px 0px;
+  font-size: 15px;
+}
+article {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.signup {
+  width: 60%;
+  height: 800px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+input {
+  width: 550px;
+  height: 50px;
+}
+
+/* 체크표시 */
+article > .signup > ul > li > ul {
+  display: flex;
+  flex-direction: row;
+}
