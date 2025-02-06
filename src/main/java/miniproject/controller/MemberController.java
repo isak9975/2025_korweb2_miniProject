@@ -1,13 +1,17 @@
 package miniproject.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import miniproject.model.dto.BoardDto;
+import miniproject.model.dto.MemberDto;
+import miniproject.model.dto.ReplyDto;
+import miniproject.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MemberController {
 
-    @Autowired private MemberService memberService;
+    @Autowired
+    private MemberService memberService;
 
     // [1] 회원가입
     @PostMapping("/member/signup.do")

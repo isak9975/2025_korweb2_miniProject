@@ -10,7 +10,7 @@ public class MemberDto {
     private String mid;
     private String mpwd;
     private String mname;
-    private String memail;
+    private String mphone;
 
     // dto -> entity 변환 함수
     public MemberEntity toEntity() {
@@ -18,7 +18,7 @@ public class MemberDto {
                 .mid(this.mid)
                 .mpwd(this.mpwd)
                 .mname(this.mname)
-                .memail(this.memail)
+                .mphone(this.mphone)
                 .build();
     }
 }
