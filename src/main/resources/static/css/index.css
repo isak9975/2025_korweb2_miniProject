@@ -1,0 +1,132 @@
+main {
+  width: 100%;
+}
+
+main > article,
+.intro-article {
+  max-width: 80%;
+  margin: 150px auto 80px auto;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+main > article > img,
+.intro-image {
+  width: 473px;
+  height: 341px;
+  object-fit: cover;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 5px;
+}
+
+main > article > div,
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+main > article > div > h1,
+.intro-title {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+main > article > div > p,
+.intro-description {
+  font-size: 17px;
+  line-height: 30px;
+}
+
+#home_box--set,
+.home-box {
+  position: relative;
+  top: 30px;
+}
+
+#home_box--btn,
+.home-button {
+  width: 150px;
+  height: 40px;
+  background: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 60px 15px;
+  padding: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.board-section {
+  flex: 1 1 45%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.board-article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.board-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.board-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.board-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.board-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.board-item:last-child {
+  border-bottom: none;
+}
+
+.comment-count {
+  margin-left: auto;
+  color: #888;
+}
+
+.post-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
