@@ -14,8 +14,8 @@ main > article,
 
 main > article > img,
 .intro-image {
-  width: 473px; /* Increased by 10% from 430px */
-  height: 341px; /* Increased by 10% from 310px */
+  width: 473px;
+  height: 341px;
   object-fit: cover;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
