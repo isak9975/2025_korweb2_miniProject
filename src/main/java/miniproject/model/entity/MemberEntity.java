@@ -21,8 +21,8 @@ public class MemberEntity extends BaseTime {
     @Column(nullable = false , columnDefinition = "varchar(20)")
     private String mname;
 
-    @Column(nullable = false , unique = true , columnDefinition = "varchar(50)")
-    private String memail;
+    @Column(nullable = false , unique = true , columnDefinition = "varchar(13)")
+    private String mphone;
 
     // entity -> dto 변환 함수
     public MemberDto toDto() {
@@ -30,7 +30,7 @@ public class MemberEntity extends BaseTime {
                 .mid(this.mid)
                 .mpwd(this.mpwd)
                 .mname(this.mname)
-                .memail(this.memail)
+                .mphone(this.mphone)
                 .build();
     }
 }
