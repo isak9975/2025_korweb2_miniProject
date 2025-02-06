@@ -1,6 +1,6 @@
 package miniproject.controller;
 
-import miniproject.model.dto.BaordDto;
+import miniproject.model.dto.BoardDto;
 import miniproject.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,19 +14,19 @@ public class BoardController {
 
     //1. 게시물 작성
     @PostMapping("/board/write.do")
-    public boolean write(@RequestBody BaordDto baordDto){
-        return  boardService.write(baordDto);
+    public boolean write(@RequestBody BoardDto boardDto){
+        return  boardService.write(boardDto);
     }
 
     //2. 게시물 전체 조회
     @GetMapping("/board/findall.do")
-    public List<BaordDto> findAll(){
+    public List<BoardDto> findAll(){
         return boardService.findAll();
     }
 
     //3. 게시물 개별 조회
     @GetMapping("/board/find.do")
-    public BaordDto find(@RequestParam int bno){
+    public BoardDto find(@RequestParam int bno){
         return boardService.find(bno);
     }
 
