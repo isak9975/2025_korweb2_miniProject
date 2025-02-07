@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title class="page-title">커피 커뮤니티 홈</title>
-    <link rel="stylesheet" href="./../static/css/reset.css" />
-    <link rel="stylesheet" href="./../static/css/index.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -13,18 +14,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="./../static/js/header.js" defer></script>
-    <script src="./../static/js/main.js" defer></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/main.js" defer></script>
   </head>
   <body class="main-body">
-    <div id="header-placeholder" class="header-placeholder"></div>
+    <div th:insert="~{header :: header}" class="header-placeholder"></div>
     <main class="main-content">
       <article class="intro-article">
-        <img
-          src="./../static/img/coffee-7632568_1280.jpg"
-          alt=""
-          class="intro-image"
-        />
+        <img src="/img/coffee-7632568_1280.jpg" alt="" class="intro-image" />
         <div class="intro-text">
           <h1 class="intro-title">커피와 함께하는 순간</h1>
           <p class="intro-description">
@@ -42,7 +39,7 @@
         <article class="board-article">
           <div class="board-header">
             <span class="board-title">잡담</span>
-            <a href="./borad/board.html?type=2" class="board-link">더보기 ></a>
+            <a href="/board.html?type=2" class="board-link">더보기 ></a>
           </div>
           <ul class="board-list">
             <li class="board-item">
@@ -82,7 +79,7 @@
         <article class="board-article">
           <div class="board-header">
             <span class="board-title">노하우</span>
-            <a href="./borad/board.html?type=3" class="board-link">더보기 ></a>
+            <a href="/board.html?type=3" class="board-link">더보기 ></a>
           </div>
           <ul class="board-list">
             <li class="board-item">
@@ -122,7 +119,7 @@
         <article class="board-article">
           <div class="board-header">
             <span class="board-title">정보</span>
-            <a href="./borad/board.html?type=4" class="board-link">더보기 ></a>
+            <a href="/board.html?type=4" class="board-link">더보기 ></a>
           </div>
           <ul class="board-list">
             <li class="board-item">
@@ -162,7 +159,7 @@
         <article class="board-article">
           <div class="board-header">
             <span class="board-title">질문</span>
-            <a href="./borad/board.html?type=5" class="board-link">더보기 ></a>
+            <a href="/borad/board.html?type=5" class="board-link">더보기 ></a>
           </div>
           <ul class="board-list">
             <li class="board-item">

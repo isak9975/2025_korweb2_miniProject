@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
-    <link rel="stylesheet" href="./../../static/css/reset.css" />
-    <link rel="stylesheet" href="./../../static/css/signup.css" />
-    <link rel="stylesheet" href="./../../static/css/header.css" />
-    <script src="./../../static/js/header.js"></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <script src="/js/header.js"></script>
   </head>
+  <div th:insert="~{header :: header}" class="header-placeholder"></div>
   <body>
-    <div id="header-placeholder" class="header-placeholder"></div>
-    <main
-      style="
-        max-width: 50%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-      "
-    >
-      <form action="signin" id="signin">
+    <main>
+      <form id="signinForm">
         <div class="container">
           <h1 class="title">로그인</h1>
 
@@ -40,16 +33,14 @@
             id="mpwdInput"
             class="mpwdInput"
           />
-          <button type="button" class="signupBtn" onclick="signin()">
-            로그인
-          </button>
+          <button type="submit" class="signinBtn">로그인</button>
         </div>
 
         <div class="signup">
-          <p>회원가입하러 가기 <a href="signup.html">Signup</a></p>
+          <p>회원가입하러 가기 <a href="signup">Signup</a></p>
         </div>
       </form>
     </main>
-    <script src="./../../static/js/signin.js"></script>
+    <script src="/js/member/signin.js"></script>
   </body>
 </html>

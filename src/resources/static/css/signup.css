@@ -1,5 +1,12 @@
+body {
+  width: 100%;
+}
 .container {
-  padding: 16px;
+  max-width: 80%;
+  margin: 10% auto;
+}
+form {
+  width: 600px;
 }
 .title {
   font-size: 20px;
@@ -15,7 +22,8 @@ input[type="password"] {
   background: #f1f1f1;
 }
 
-.signupBtn {
+.signupBtn,
+.signinBtn {
   background-color: dimgray;
   color: white;
   padding: 16px 20px;
