@@ -1,15 +1,23 @@
 const signup = () => {
-  const midInput = document.querySelector(".midInput");
-  const mpwdInput = document.querySelector(".mpwdInput");
-  const mpwdInputCheck = document.querySelector(".mpwdInputCheck");
-  const mnameInput = document.querySelector(".mnameInput");
-  const mphoneInput = document.querySelector(".mphoneInput");
+  const midInput = document.querySelector("#midInput");
+  const mpwdInput = document.querySelector("#mpwdInput");
+  const mpwdInputCheck = document.querySelector("#mpwdInputCheck");
+  const mnameInput = document.querySelector("#mnameInput");
+  const mphoneInput = document.querySelector("#mphoneInput");
+
+  console.log(midInput, mpwdInput, mpwdInputCheck, mnameInput, mphoneInput);
 
   const id = midInput.value;
   const pwd = mpwdInput.value;
   const pwdCheck = mpwdInputCheck.value;
   const name = mnameInput.value;
   const phone = mphoneInput.value;
+
+  console.log(id, pwd, pwdCheck, name, phone);
+
+  if (pwd != pwdCheck) {
+    alert("비밀번호가 일치하지 않습니다!");
+  }
 
   const dataObj = { id, pwd, name, phone };
 
