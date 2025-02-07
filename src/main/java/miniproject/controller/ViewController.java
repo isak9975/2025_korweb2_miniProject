@@ -16,5 +16,5 @@ public class ViewController {
     public String login() {return "/member/login.html";}
 
     @GetMapping("/member/mypage") // 마이페이지 반환 메서드
-    public String myPage() {return "";}
+    public String myPage() {return "/member/mypage.html";}
 }
