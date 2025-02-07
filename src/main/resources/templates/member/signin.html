@@ -3,11 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="./../../static/css/reset.css" />
     <link rel="stylesheet" href="./../../static/css/signup.css" />
+    <link rel="stylesheet" href="./../../static/css/header.css" />
+    <script src="./../../static/js/header.js"></script>
   </head>
   <body>
-    <section class="login"></section>
+    <div id="header-placeholder" class="header-placeholder"></div>
+    <main
+      style="
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      "
+    >
+      <form action="signin" id="signin">
+        <div class="container">
+          <h1 class="title">로그인</h1>
+
+          <label for="id"><b>아이디</b></label>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="id"
+            id="midInput"
+            class="form-control midInput"
+          />
+
+          <label for="pwd"><b>비밀번호</b></label>
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="pwd"
+            id="mpwdInput"
+            class="mpwdInput"
+          />
+          <button type="button" class="signupBtn" onclick="signin()">
+            로그인
+          </button>
+        </div>
+
+        <div class="signup">
+          <p>회원가입하러 가기 <a href="signup.html">Signup</a></p>
+        </div>
+      </form>
+    </main>
+    <script src="./../../static/js/signin.js"></script>
   </body>
 </html>

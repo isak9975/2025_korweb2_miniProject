@@ -1,3 +1,5 @@
+alert("예외처리 미구현, 스타일 임시용");
+
 const signup = () => {
   const midInput = document.querySelector("#midInput");
   const mpwdInput = document.querySelector("#mpwdInput");
