@@ -16,7 +16,7 @@ const signin = () => {
     body: JSON.stringify(dataObj),
   };
 
-  fetch("매핑주소 입력", option)
+  fetch("/member/signin", option)
     .then((response) => response.json())
     .then((data) => {
       if (data) {

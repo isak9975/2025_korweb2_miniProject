@@ -30,7 +30,7 @@ const signup = () => {
     body: JSON.stringify(dataObj),
   };
 
-  fetch("매핑주소(컨트롤러)", option)
+  fetch("/member/signup", option)
     .then((Response) => Response.json())
     .then((data) => {
       if (data) {
