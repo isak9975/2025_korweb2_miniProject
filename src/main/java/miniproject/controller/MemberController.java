@@ -25,10 +25,16 @@ public class MemberController {
         return memberService.login(memberDto);
     } // f ed
 
+    // [2-1] 로그인된 회원 세션에 IN
+    @GetMapping("/member/login/id.do")
+    public String loginId() {
+        return memberService.getSession();
+    }
+
     // [3] 로그아웃
     @GetMapping("/member/logout.do")
     public boolean logout() {
-        return memberService.logout();
+        return memberService.deleteSession();
     } // f ed
 
     // [4] 내 정보 조회

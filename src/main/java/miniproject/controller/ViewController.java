@@ -14,4 +14,7 @@ public class ViewController {
 
     @GetMapping("/member/login") // 로그인 페이지 반환 메서드
     public String login() {return "/member/login.html";}
+
+    @GetMapping("/member/mypage") // 마이페이지 반환 메서드
+    public String myPage() {return "";}
 }

@@ -2,9 +2,11 @@ package miniproject.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
 import miniproject.model.dto.BoardDto;
 import miniproject.model.dto.MemberDto;
 import miniproject.model.dto.ReplyDto;
+import miniproject.model.entity.MemberEntity;
 import miniproject.model.repository.BoardRepository;
 import miniproject.model.repository.MemberRepository;
 import miniproject.model.repository.ReplyRepository;
@@ -22,7 +24,7 @@ public class MemberService {
 
     // == 세션 함수 == //
 
-    // [1] 세션 객체 내 정보 추가(setSession) : 로그인
+    // [1] 세션 객체 내 정보 추가(setSession) : 로그인 + 로그인한 회원 세션에 저장
     public boolean setSession(String mid) {
         HttpSession httpSession = request.getSession(); // 요청 객체를 통한 톰캣 내 세션 객체 반환
         httpSession.setAttribute("loginid",mid); // 세션 객체에 속성(새로운 값 추가)
@@ -50,20 +52,33 @@ public class MemberService {
     // == 세션 함수 ed == //
 
 
-    // [1] 회원가입
+    // [1] 회원가입 !
+    @Transactional
     public boolean signup(MemberDto memberDto) {
-        return false;
+        MemberEntity memberEntity = memberDto.toEntity(); // 엔티티 전환
+        MemberEntity saveEntity = memberRepository.save(memberEntity); // 엔티티 save 이후 반환
+        // 반환된 엔티티의 Mno가 0보다 클 시 true 반환 , 아닐 시 false 반환
+        if(saveEntity.getMno() > 0) {return true;} else {return false;}
     } // f ed
 
-    // [2] 로그인
+    // [2] 로그인 !
+    @Transactional
     public boolean login(MemberDto memberDto) {
-        return false;
+        // memberDto 에서 mid와 mpwd를 뽑아내 memberRepository 로그인 메서드 호출
+        boolean result = memberRepository.existsByMidAndMpwd(memberDto.getMid(),memberDto.getMpwd());
+
+        if (result == true) {
+            System.out.println("로그인 성공");
+            setSession(memberDto.getMid()); // 로그인 성공 시 세션에 아이디 저장
+            return true;
+        } else {
+            System.out.println("로그인 실패");
+            return false;
+        }
     } // f ed
 
-    // [3] 로그아웃
-    public boolean logout() {
-        return false;
-    } // f ed
+    // [3] 로그아웃 !
+    // 세션 함수 [3] 참고
 
     // [4] 내 정보 조회
     public MemberDto myInfo() {
