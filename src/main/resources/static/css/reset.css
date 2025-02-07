@@ -141,10 +141,6 @@ ol {
   list-style: none;
 }
 /* 임시 */
-iframe {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
+input {
+  width: none;
 }

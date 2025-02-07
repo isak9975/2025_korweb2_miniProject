@@ -11,48 +11,75 @@
   </head>
   <body>
     <div id="header-placeholder" class="header-placeholder"></div>
-    <section>
-      <article>
-        <div class="signup">
-          <ul>
-            <li>
-              <input type="text" placeholder="아이디" />
-              <ul>
-                <li>6~30자 이내 ✓</li>
-                <li>영문 포함 ✓</li>
-                <li>숫자 포함 ✓</li>
-              </ul>
-            </li>
-            <li>
-              <input type="password" placeholder="비밀번호" />
-              <ul>
-                <li>6~30자 이내 ✓</li>
-                <li>영문 포함 ✓</li>
-                <li>숫자 포함 ✓</li>
-                <li>특수문자(!, #, ?) ✓</li>
-              </ul>
-            </li>
-            <li>
-              <input type="password" placeholder="비밀번호 확인" />
-              <ul>
-                <li>비밀번호 일치 ✓</li>
-              </ul>
-            </li>
-            <li>
-              <input type="text" placeholder="이름" />
-              <ul>
-                <li>2~20자 이내 ✓</li>
-              </ul>
-            </li>
-            <li>
-              <input type="text" placeholder="연락처" />
-              <ul>
-                <li>예시) 010-1234-5678 ✓</li>
-              </ul>
-            </li>
-          </ul>
+    <main
+      style="
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      "
+    >
+      <form action="action_page.php" id="signup">
+        <div class="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+
+          <label for="id"><b>아이디</b></label>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="id"
+            id="signup_id"
+            required
+            class="form-control midInput"
+          />
+
+          <label for="pwd"><b>비밀번호</b></label>
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="pwd"
+            id="signup_pwd"
+            required
+          />
+          <label for="pwd_check"><b>비밀번호 확인</b></label>
+          <input
+            type="password"
+            placeholder="비밀번호 확인"
+            name="psw_check"
+            id="signup_pwd_check"
+            required
+          />
+          <label for="name"><b>이름</b></label>
+          <input
+            type="text"
+            placeholder="이름"
+            name="name"
+            id="signup_name"
+            required
+          />
+
+          <label for="phone"><b>연락처</b></label>
+          <input
+            type="text"
+            placeholder="010-1234-5678"
+            name="phone"
+            id="signup_phone"
+            required
+          />
+          <hr />
+
+          <p>
+            By creating an account you agree to our
+            <a href="#">Terms & Privacy</a>.
+          </p>
+          <button type="submit" class="registerbtn">Register</button>
         </div>
-      </article>
-    </section>
+
+        <div class="container signin">
+          <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
