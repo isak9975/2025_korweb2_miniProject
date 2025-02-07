@@ -16,7 +16,8 @@ const signup = () => {
   console.log(id, pwd, pwdCheck, name, phone);
 
   if (pwd != pwdCheck) {
-    alert("비밀번호가 일치하지 않습니다!");
+    alert("비밀번호가 일치하지 않습니다");
+    return;
   }
 
   const dataObj = { id, pwd, name, phone };
