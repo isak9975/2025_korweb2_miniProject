@@ -9,21 +9,17 @@
     <link rel="stylesheet" href="./../../static/css/board.css" />
     <script src="./../../static/js/header.js"></script>
   </head>
+  <div id="header-placeholder" class="header-placeholder"></div>
   <body>
-    <div id="header-placeholder" class="header-placeholder"></div>
-    <main>
-      <h1 id="board-title">커뮤니티 게시판</h1>
-      <table id="posts">
-        <thead>
-          <tr>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>댓글수</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <main class="content">
+      <h1 id="board-title"></h1>
+      <div class="post-header">
+        <div class="post-title-header">제목</div>
+        <div class="post-date-header">날짜</div>
+        <div class="post-author-header">작성자</div>
+        <div class="post-comments-header">댓글 수</div>
+      </div>
+      <!-- js로 데이터 삽입 -->
     </main>
     <script src="./../../static/js/board.js"></script>
   </body>
