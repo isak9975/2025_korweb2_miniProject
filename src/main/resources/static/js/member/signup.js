@@ -17,6 +17,7 @@ function validateInputs() {
   const mname = mnameInput.value;
 
   let isFormValid = true;
+  let checkNo = 0;
 
   //아이디 체크(길이)
   if (mid.length >= 6 && mid.length <= 20) {
@@ -115,9 +116,33 @@ function validateInputs() {
     checkbox7.innerHTML = "☐";
     isFormValid = false;
   }
+  //연락처
+  document.getElementById("mphoneInput").addEventListener("input", (x) => {
+    let input = x.target.value.replace(/-/g, "");
+    if (input.startsWith("010")) {
+      if (input.length > 3)
+        input = input.substring(0, 3) + "-" + input.substring(3);
+      if (input.length > 8)
+        input = input.substring(0, 8) + "-" + input.substring(8);
+    }
+    x.target.value = input;
+
+    // 유효성 검사 및 스타일 업데이트
+    const checktext8 = document.querySelector(".checktext8");
+    const checkbox8 = document.querySelector(".checkbox8");
+    if (input.length === 13) {
+      checktext8.style.color = "#79CF9F";
+      checkbox8.innerHTML = "☑";
+    } else {
+      checktext8.style.color = "";
+      checkbox8.innerHTML = "☐";
+    }
+  });
 
   // 모든 조건이 충족되면 버튼 활성화
-  document.querySelector(".signupBtn").disabled = !isFormValid;
+  const btnDone = document.querySelector(".signupBtn");
+  btnDone.disabled = false;
+  btnDone.style.opacity = "0.9";
 }
 
 document.getElementById("signupForm").addEventListener("submit", (event) => {
@@ -140,6 +165,10 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     alert("비밀번호가 일치하지 않습니다");
     return;
   }
+  if (!mphone.startsWith("010")) {
+    alert("연락처를 형식에 맞게 작성해주세요 010-xxxx-xxxx");
+    return;
+  }
 
   const dataObj = { mid, mpwd, mname, mphone };
 
@@ -153,7 +182,7 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        location.href = "/";
+        location.href = "signin";
         alert("가입등록 완료");
       } else {
         alert("가입 실패");

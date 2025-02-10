@@ -31,9 +31,15 @@ input[type="password"] {
   border: none;
   cursor: pointer;
   width: 100%;
+  opacity: 0.4;
+}
+.signinBtn {
   opacity: 0.9;
 }
 
 .signup {
   text-align: center;
+}
+.gotosign {
+  color: dodgerblue;
 }
