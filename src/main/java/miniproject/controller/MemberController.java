@@ -7,6 +7,8 @@ import miniproject.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class MemberController {
 
@@ -45,13 +47,13 @@ public class MemberController {
 
     // [5] 내 게시물 조회
     @GetMapping("/member/myboard.do")
-    public BoardDto myboard() {
+    public List<BoardDto> myboard() {
         return memberService.myBoard();
     } // f ed
 
     // [6] 내 댓글 조회
     @GetMapping("/member/myreply.do")
-    public ReplyDto myreply() {
+    public List<ReplyDto> myreply() {
         return memberService.myReply();
     } // f ed
 
