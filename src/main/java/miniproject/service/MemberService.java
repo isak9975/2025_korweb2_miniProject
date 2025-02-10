@@ -111,19 +111,46 @@ public class MemberService {
             List<BoardEntity> boardEntityList = boardRepository.findAll();
 
             for (int i = 0; i < boardEntityList.size(); i++) {
+                // i번째 게시물 꺼내기
                 BoardEntity boardEntity = boardEntityList.get(i);
+
+                // 만약 i번째 게시물 작성자의 회원번호가 현재 로그인 중인 회원의 회원번호와 같다면...
                 if (boardEntity.getMemberEntity().getMno() == memberEntity.getMno() ) {
+                    // i번째 게시물 DTO 변환
                     BoardDto boardDto = boardEntity.toDto();
+                    // 내 게시물리스트에 저장
                     myBoard.add(boardDto);
                 } // if ed
             } // for ed
+
+            // 내 게시물리스트 반환
             return myBoard;
         }
         return null;
     } // f ed
 
-    // [6] 내 댓글 조회
+    // [6] 내 댓글 조회 !
     public List<ReplyDto> myReply() {
+        String mid = getSession(); // 현재 로그인된 회원 아이디 조회
+        if (mid != null) {
+            // 조회된 회원 아이디로 회원 정보 엔티티 조회
+            MemberEntity memberEntity = memberRepository.findByMid(mid);
+
+            // 내가 작성한 게시물만을 저장할 리스트 생성
+            List<ReplyDto> myReply = new ArrayList<>();
+
+            // 모든 게시물 엔티티 가져오기
+            List<ReplyEntity> replyEntityList = replyRepository.findAll();
+
+            for (int i = 0; i < replyEntityList.size(); i++) {
+                ReplyEntity replyEntity = replyEntityList.get(i);
+                if (replyEntity.getMemberEntity().getMno() == memberEntity.getMno() ) {
+                    ReplyDto replyDto = replyEntity.toDto();
+                    myReply.add(replyDto);
+                } // if ed
+            } // for ed
+            return myReply;
+        }
         return null;
     } // f ed
 

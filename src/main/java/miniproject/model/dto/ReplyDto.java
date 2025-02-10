@@ -2,11 +2,24 @@ package miniproject.model.dto;
 
 import lombok.*;
 import miniproject.model.entity.ReplyEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 
-@Setter@Getter@Builder
-@AllArgsConstructor@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReplyDto {
+    private int rno;
+    private String rcontent;
+    private int bno;
+    private int mno;
 
-
+    // DTO -> entity
+    public ReplyEntity toEntity() {
+        return ReplyEntity.builder()
+                .rno(this.rno)
+                .rcontent(this.rcontent)
+                .build();
+    }
 }
