@@ -99,16 +99,16 @@ public class BoardService {
             List<ReplyDto> replyDtoList = new ArrayList<>();
 
             //2) 댓글 선회하며(entity=>Dto) 게시물에 맞는 댓글 가져오기
-//            replyEntityList.forEach((reply -> {
-//
-//                if(reply.getBno()==bno) {
-//
-//                    replyDtoList.add(reply.toDto());
+            replyEntityList.forEach((reply -> {
+
+                if(reply.getBoardEntity().getBno()==bno) {
+
+                    replyDtoList.add(reply.toDto());
 
 
-//                }
-//
-//            }));
+                }
+
+            }));
 //            return replyDtoList;
 
 
@@ -121,33 +121,75 @@ public class BoardService {
     }
 
     ///4. 게시물 개별 수정
-    public boolean update(int bno){
-        //option 객체로 불러서 확인
-        Optional<BoardEntity> optional = boardRepository.findById(bno);
-        //만약 조회된 데이터가 있으면
-        if(optional.isPresent()){
+    public boolean update(BoardDto boardDto){
+        //1. 게시물 객체 검사
+            //option 객체로 불러서 확인
+            Optional<BoardEntity> optional = boardRepository.findById(boardDto.getBno());
+            //만약 조회된 데이터가 있으면
+            if(optional.isPresent()){
+                //조회된 데이터를 Dto 로 변환.
+                BoardDto result = optional.get().toDto();
+                //Dto 를 반환;
+                return false;
+            }
+            System.out.println("[오류]조회된 데이터가 없습니다");
 
+        //2. 유효성 검사.
+            if(memberService.myInfo().getMno() == boardRepository.findById(boardDto.getBno()).get().getMemberEntity().getMno()){
+                //3. 업데이트 실행
+                    //1) 선택한 게시물 가져오기
+                    BoardEntity savedEntity = boardRepository.findById(boardDto.getBno()).get();
+                    //2) 작성한 내용 엔티티로 변환
+                    BoardEntity boardEntity = boardDto.toEntity();
+                    //3) 작성한 내용을 선택한 게시물에 수정
+                    savedEntity.setBtitle(boardEntity.getBtitle());
+                    savedEntity.setBcontent(boardEntity.getBcontent());
 
-            //조회된 데이터를 Dto 로 변환.
-            BoardDto boardDto = optional.get().toDto();
-            //Dto 를 반환;
-            return false;
-        }
-        System.out.println("[오류]조회된 데이터가 없습니다");
-        return false;
+                    BoardEntity result = boardRepository.save(savedEntity);
+
+                    if(result.getBno()>0){
+                        System.out.println("게시물 작성 성공");
+                        return true;
+                    }
+                    else{
+                        System.out.println("게시물 작성 실패");
+                        return false;}
+            }
+            else{
+                System.out.println("작성자만 가능합니다");
+                return false;
+            }
     }
 
     //5. 게시물 개별 삭제
     public boolean delete(int bno){
+        //1. 게시물 검사
+            //option 객체로 불러서 확인
+            Optional<BoardEntity> optional = boardRepository.findById(bno);
+            //만약 조회된 데이터가 있으면
+            if(optional.isPresent()){
+                //조회된 데이터를 Dto 로 변환.
+                BoardDto boardDto = optional.get().toDto();
+                //Dto 를 반환;
+                return false;
+            }
+            System.out.println("[오류]조회된 데이터가 없습니다");
 
-        if(memberService.myInfo().getMno() == boardRepository.findById(bno).get().getMemberEntity().getMno()){
-            boardRepository.deleteById(bno);
-            return true;
-        }
-        else{
-            System.out.println("작성자만 가능합니다");
-            return false;
-        }
+        //2. 유효성 검사.
+            if(memberService.myInfo().getMno() == boardRepository.findById(bno).get().getMemberEntity().getMno()){
+                boardRepository.deleteById(bno);
+
+                //3. 삭제 실행
+                boardRepository.deleteById(bno);
+                System.out.println("삭제가 완료 되었습니다.");
+                return true;
+            }
+            else{
+                System.out.println("작성자만 가능합니다");
+                return false;
+            }
+
+        //3. 게시물 삭제 진행
     }
 
 //===================================댓글 서비스 =============================================================================
@@ -166,19 +208,21 @@ public class BoardService {
         MemberEntity memberEntity = memberRepository.findById(memberDto.getMno()).get();
         //현재 작성할 댓글이 위치한 조회중인 게시물 정보 엔티티 조회
 
-//        int bno = replyDto.getBno();
-//        BoardEntity boardEntity = boardRepository.findById(bno).get();
+        int bno = replyDto.getBno();
+        BoardEntity boardEntity = boardRepository.findById(bno).get();
 
         //4. 입력 받은 매개변수 Dto => entity로 변환
-//        ReplyEntity replyEntity = replyDto.toEntity();
-//        ReplyEntity saveEntity = replyRepository.save(replyEntity);
-//
-//        if(saveEntity.getRno()>0){return true;} // 댓글번호 생성 되었다면 등록 성공.
+        ReplyEntity replyEntity = replyDto.toEntity();
+        ReplyEntity saveEntity = replyRepository.save(replyEntity);
+
+        if(saveEntity.getRno()>0){return true;} // 댓글번호 생성 되었다면 등록 성공.
         return false;
 
     }
 
-    //7. 특정 게시물의 댓글 전체 조회
+
+
+    //7. 특정 게시물의 댓글 전체 조회  -> 게시물 열렸을때 같이 열릴
     public List<ReplyDto> replyFindAll(int bno){
 
         //1. 모든 댓글 엔티티 조회
@@ -189,19 +233,16 @@ public class BoardService {
             List<ReplyDto> replyDtoList = new ArrayList<>();
 
             //2) 댓글 선회하며(entity=>Dto) 게시물에 맞는 댓글 가져오기
-//            replyEntityList.forEach((reply -> {
-//
-//                if(reply.getBno()==bno) {
-//
-//                    replyDtoList.add(reply.toDto());
-//                }
-//
-//            }));
-//            return replyDtoList;
-//
+            replyEntityList.forEach((reply -> {
 
+                if(reply.getBoardEntity().getBno()==bno) {
+                    replyDtoList.add(reply.toDto());
+                }
 
-        return null;
+            }));
+            return replyDtoList;
+
+//        return null;
     }
 
 

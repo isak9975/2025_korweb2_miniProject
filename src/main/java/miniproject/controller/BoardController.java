@@ -32,8 +32,8 @@ public class BoardController {
 
     //4. 게시물 개별 수정
     @PutMapping("/board/update.do")
-    public boolean update(@RequestParam int bno){
-        return boardService.update(bno);
+    public boolean update(@RequestBody BoardDto boardDto){
+        return boardService.update(boardDto);
     }
 
     //5. 게시물 개별 삭제
