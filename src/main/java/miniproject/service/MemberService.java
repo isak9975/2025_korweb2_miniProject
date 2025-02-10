@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import miniproject.model.dto.BoardDto;
 import miniproject.model.dto.MemberDto;
 import miniproject.model.dto.ReplyDto;
+import miniproject.model.entity.BoardEntity;
 import miniproject.model.entity.MemberEntity;
 import miniproject.model.entity.ReplyEntity;
 import miniproject.model.repository.BoardRepository;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -95,13 +97,33 @@ public class MemberService {
         return null;
     } // f ed
 
-    // [5] 내 게시물 조회
-    public BoardDto myBoard() {
+    // [5] 내 게시물 조회 !
+    public List<BoardDto> myBoard() {
+        String mid = getSession(); // 현재 로그인된 회원 아이디 조회
+        if (mid != null) {
+            // 조회된 회원 아이디로 회원 정보 엔티티 조회
+            MemberEntity memberEntity = memberRepository.findByMid(mid);
+
+            // 내가 작성한 게시물만을 저장할 리스트 생성
+            List<BoardDto> myBoard = new ArrayList<>();
+
+            // 모든 게시물 엔티티 가져오기
+            List<BoardEntity> boardEntityList = boardRepository.findAll();
+
+            for (int i = 0; i < boardEntityList.size(); i++) {
+                BoardEntity boardEntity = boardEntityList.get(i);
+                if (boardEntity.getMemberEntity().getMno() == memberEntity.getMno() ) {
+                    BoardDto boardDto = boardEntity.toDto();
+                    myBoard.add(boardDto);
+                } // if ed
+            } // for ed
+            return myBoard;
+        }
         return null;
     } // f ed
 
     // [6] 내 댓글 조회
-    public ReplyDto myReply() {
+    public List<ReplyDto> myReply() {
         return null;
     } // f ed
 
