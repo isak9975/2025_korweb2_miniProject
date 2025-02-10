@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/mypage.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <script src="/js/header.js" defer></script>
+    <script src="/js/member/mypage.js" defer></script>
+  </head>
+  <body>
+    <div th:insert="~{header :: header}" class="header-placeholder"></div>
+    <main>
+      <div class="container">
+        <h1 class="title">마이페이지</h1>
+
+        <label for="username"><b>아이디</b></label>
+        <input
+          type="text"
+          placeholder="아이디"
+          name="username"
+          id="usernameInput"
+          class="form-control usernameInput"
+          readonly
+        />
+
+        <label for="name"><b>이름</b></label>
+        <input
+          type="text"
+          placeholder="이름"
+          name="name"
+          id="nameInput"
+          class="form-control nameInput"
+        />
+
+        <label for="phone"><b>연락처</b></label>
+        <input
+          type="text"
+          placeholder="010-1234-5678"
+          name="phone"
+          id="phoneInput"
+          class="form-control phoneInput"
+        />
+
+        <button type="submit" class="updateBtn">정보 수정</button>
+      </div>
+    </main>
+  </body>
+</html>

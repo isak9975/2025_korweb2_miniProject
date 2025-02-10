@@ -12,8 +12,8 @@ public class ViewController {
     @GetMapping("/member/signup") // 회원가입 페이지 반환 메서드
     public String signup() {return "/member/signup.html";}
 
-    @GetMapping("/member/login") // 로그인 페이지 반환 메서드
-    public String login() {return "/member/login.html";}
+    @GetMapping("/member/signin") // 로그인 페이지 반환 메서드
+    public String login() {return "/member/signin.html";}
 
     @GetMapping("/member/mypage") // 마이페이지 반환 메서드
     public String myPage() {return "/member/mypage.html";}
