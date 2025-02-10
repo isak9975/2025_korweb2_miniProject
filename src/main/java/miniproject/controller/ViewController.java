@@ -24,15 +24,15 @@ public class ViewController {
         if (type != null) {
             switch (type) {
                 case "1":
-                    return "/board/board_type_1.html";
+                    return "/board/board?type_1.html";
                 case "2":
-                    return "/board/board_type_2.html";
+                    return "/board/board?type_2.html";
                 case "3":
-                    return "/board/board_type_3.html";
+                    return "/board/board?type_3.html";
                 case "4":
-                    return "/board/board_type_4.html";
+                    return "/board/board?type_4.html";
                 case "5":
-                    return "/board/board_type_5.html";
+                    return "/board/board?type_5.html";
                 default:
                     // 유효하지 않은 type 값인 경우 기본 페이지를 반환합니다.
                     return "/board/board.html";
