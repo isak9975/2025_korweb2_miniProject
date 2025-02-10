@@ -20,13 +20,13 @@ public class MemberController {
     } // f ed
 
     // [2] 로그인
-    @PostMapping("/member/login.do")
+    @PostMapping("/member/signin.do")
     public boolean login(@RequestBody MemberDto memberDto) {
         return memberService.login(memberDto);
     } // f ed
 
     // [2-1] 로그인된 회원 세션에 IN
-    @GetMapping("/member/login/id.do")
+    @GetMapping("/member/signin/id.do")
     public String loginId() {
         return memberService.getSession();
     }
@@ -38,7 +38,7 @@ public class MemberController {
     } // f ed
 
     // [4] 내 정보 조회
-    @GetMapping("/member/myinfo.do")
+    @GetMapping("/member/mypage.do")
     public MemberDto myInfo() {
         return memberService.myInfo();
     } // f ed
