@@ -1,5 +1,8 @@
-.sign {
+.signin, .signup, .mypage{
   padding: 18px;
+}
+.mypage{
+  /* display: none;*/
 }
 #header {
   width: 100%;
