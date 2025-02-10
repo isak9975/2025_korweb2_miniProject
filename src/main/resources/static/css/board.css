@@ -1,28 +1,128 @@
-#board-title {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 24px;
+/* .content * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: auto;
+  margin-top: 16px;
+  width: 80%;
+}
+
+.post-header,
+.post {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.post-header {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.post-title,
+.post-title-header {
+  flex-grow: 2;
+}
+
+.post-date,
+.post-author,
+.post-comments,
+.post-date-header,
+.post-author-header,
+.post-comments-header {
+  flex-shrink: 0;
+  margin-left: 16px;
+} */
+
+/* reset.css */
+.content * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* board.css */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: auto;
+  margin-top: 16px;
+  width: 80%;
+}
+
+.post-header,
+.post {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.post-header {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.post-title,
+.post-title-header {
+  flex-grow: 2;
+}
+
+.post-date,
+.post-author,
+.post-comments,
+.post-date-header,
+.post-author-header,
+.post-comments-header {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+/* 8:30 */
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.post-title {
+  flex: 2;
   font-weight: bold;
 }
 
-#posts {
-  max-width: 800px;
-  margin: 20px auto;
-  border-collapse: collapse;
-}
-
-#posts th,
-#posts td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-#posts th {
-  background-color: #f2f2f2;
-}
-
-#posts tr:hover {
-  background-color: #f9f9f9;
-  cursor: pointer;
+.post-date,
+.post-author,
+.post-comments {
+  flex: 1;
+  text-align: center;
 }

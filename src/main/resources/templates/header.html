@@ -3,52 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./../static/css/header.css" />
+    <link rel="stylesheet" href="/css/header.css" />
   </head>
   <body>
     <header id="header">
       <nav id="nav">
         <span style="font-size: 17px; font-weight: 800"
-          ><a href="/src/main/resources/templates/index.html">COFFEE</a></span
+          ><a href="/">COFFEE</a></span
         >
         <ul id="category">
           <li>
-            <a href="/src/main/resources/templates/borad/board.html?type=1"
-              >공지</a
-            >
+            <a href="/board/board?type=1">공지</a>
           </li>
           <li>
-            <a href="/src/main/resources/templates/borad/board.html?type=2"
-              >잡담</a
-            >
+            <a href="/board/board?type=2">잡담</a>
           </li>
           <li>
-            <a href="/src/main/resources/templates/borad/board.html?type=3"
-              >노하우</a
-            >
+            <a href="/board/board?type=3">노하우</a>
           </li>
           <li>
-            <a href="/src/main/resources/templates/borad/board.html?type=4"
-              >정보</a
-            >
+            <a href="/board/board?type=4">정보</a>
           </li>
           <li>
-            <a href="/src/main/resources/templates/borad/board.html?type=5"
-              >질문</a
-            >
+            <a href="/board/board?type=5">질문</a>
           </li>
         </ul>
         <div id="member_box">
-          <span
-            ><a href="/src/main/resources/templates/member/signup.html"
-              >signup</a
-            ></span
-          >
-          <span
-            ><a href="/src/main/resources/templates/member/signin.html"
-              >signin</a
-            ></span
-          >
+          <span class="sign"><a href="/member/signup">signup</a></span>
+          <span class="sign"><a href="/member/signin">signin</a></span>
         </div>
       </nav>
     </header>

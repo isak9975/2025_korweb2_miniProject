@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/reset.css">
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <script src="/js/header.js"></script>
+  </head>
+  <div th:insert="~{header :: header}" class="header-placeholder"></div>
+  <body>
+    <main>
+      <form id="signinForm">
+        <div class="container">
+          <h1 class="title">로그인</h1>
+
+          <label for="id"><b>아이디</b></label>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="id"
+            id="midInput"
+            class="form-control midInput"
+          />
+
+          <label for="pwd"><b>비밀번호</b></label>
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="pwd"
+            id="mpwdInput"
+            class="mpwdInput"
+          />
+          <button type="submit" class="signinBtn">로그인</button>
+        </div>
+
+        <div class="signup">
+          <p>회원가입하러 가기 <a href="signup">Signup</a></p>
+        </div>
+      </form>
+    </main>
+    <script src="/js/member/signin.js"></script>
+  </body>
 </html>

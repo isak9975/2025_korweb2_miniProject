@@ -4,12 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
-    <link rel="stylesheet" href="./../../static/css/reset.css" />
-    <link rel="stylesheet" href="./../../static/css/signup.css" />
-    <link rel="stylesheet" href="./../../static/css/header.css" />
-    <script src="./../../static/js/header.js"></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <script src="/js/header.js"></script>
   </head>
   <body>
-    <div id="header-placeholder" class="header-placeholder"></div>
+    <div th:insert="~{header :: header}" class="header-placeholder"></div>
+    <main>
+      <form id="signupForm">
+        <div class="container">
+          <h1 class="title">회원가입</h1>
+
+          <label for="id">
+            <b>아이디</b>
+            <span class="checktext1"
+              >6~20글자 <span class="checkbox1">☐</span></span
+            >
+            <span class="checktext2"
+              >영문 숫자 포함 <span class="checkbox2">☐</span></span
+            >
+          </label>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="id"
+            id="midInput"
+            class="form-control midInput"
+            required
+          />
+
+          <label for="pwd">
+            <b>비밀번호</b>
+            <span class="checktext3"
+              >6~20글자 <span class="checkbox3">☐</span></span
+            >
+            <span class="checktext4"
+              >영문 숫자 포함 <span class="checkbox4">☐</span></span
+            >
+            <span class="checktext5"
+              >특수문자 !#? 포함 <span class="checkbox5">☐</span></span
+            >
+          </label>
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="pwd"
+            id="mpwdInput"
+            class="mpwdInput"
+            required
+          />
+
+          <label for="pwd_check"><b>비밀번호 확인</b></label>
+          <span class="checktext6"
+            >비밀번호 확인 <span class="checkbox6">☐</span></span
+          >
+          <input
+            type="password"
+            placeholder="비밀번호 확인"
+            name="psw_check"
+            id="mpwdInputCheck"
+            class="mpwdInputCheck"
+            required
+          />
+
+          <label for="name"><b>이름</b></label>
+          <span class="checktext7"
+            >2~20글자 <span class="checkbox7">☐</span></span
+          >
+          <input
+            type="text"
+            placeholder="이름"
+            name="name"
+            id="mnameInput"
+            class="mnameInput"
+            required
+          />
+
+          <label for="phone"><b>연락처</b></label>
+          <span>구현x</span>
+          <input
+            type="text"
+            placeholder="010-1234-5678"
+            name="phone"
+            id="mphoneInput"
+            class="mphoneInput"
+            required
+          />
+
+          <button type="submit" class="signupBtn" disabled>회원가입</button>
+
+          <div class="signup">
+            <p>로그인하러 가기 <a href="signin">Signin</a></p>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script src="/js/member/signup.js"></script>
   </body>
 </html>
