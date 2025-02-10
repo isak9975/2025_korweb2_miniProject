@@ -2,6 +2,7 @@ package miniproject.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import miniproject.model.dto.ReplyDto;
 
 @Entity
 @Table(name = "reply")
@@ -26,4 +27,14 @@ public class ReplyEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "mno")
     private MemberEntity memberEntity; // 댓글 작성자 번호(fk)
+
+    // entity -> DTO
+    public ReplyDto toDto() {
+        return ReplyDto.builder()
+                .rno(this.rno)
+                .rcontent(this.rcontent)
+                .bno(this.boardEntity.getBno())
+                .mno(this.memberEntity.getMno())
+                .build();
+    }
 }
