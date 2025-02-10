@@ -1,128 +1,41 @@
-/* .content * {
+/* style.css */
+section {
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  margin: auto;
-  margin-top: 16px;
-  width: 80%;
+.board {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
 }
 
-.post-header,
+.header,
 .post {
   display: flex;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.post-header {
-  font-weight: bold;
-  border-bottom: 2px solid #000;
-}
-
-.post {
-  border-bottom: 1px solid #ccc;
-}
-
-.post:last-child {
-  border-bottom: none;
-}
-
-.post-title,
-.post-title-header {
-  flex-grow: 2;
-}
-
-.post-date,
-.post-author,
-.post-comments,
-.post-date-header,
-.post-author-header,
-.post-comments-header {
-  flex-shrink: 0;
-  margin-left: 16px;
-} */
-
-/* reset.css */
-.content * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* board.css */
-.content {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  margin: auto;
-  margin-top: 16px;
-  width: 80%;
-}
-
-.post-header,
-.post {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.post-header {
-  font-weight: bold;
-  border-bottom: 2px solid #000;
-}
-
-.post {
-  border-bottom: 1px solid #ccc;
-}
-
-.post:last-child {
-  border-bottom: none;
-}
-
-.post-title,
-.post-title-header {
-  flex-grow: 2;
-}
-
-.post-date,
-.post-author,
-.post-comments,
-.post-date-header,
-.post-author-header,
-.post-comments-header {
-  flex-shrink: 0;
-  margin-left: 16px;
-}
-/* 8:30 */
-.posts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-.post {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.post-title {
-  flex: 2;
+.header {
+  background-color: #e9ecef;
   font-weight: bold;
 }
 
-.post-date,
-.post-author,
-.post-comments {
+.title,
+.author,
+.comments,
+.date {
   flex: 1;
-  text-align: center;
+}
+
+.title {
+  color: #007bff;
+}
+
+.post:hover {
+  background-color: #f1f1f1;
 }
