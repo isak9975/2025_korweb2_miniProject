@@ -2,9 +2,11 @@ const getMyInfo = () => {
   fetch("/member/mypage.do", { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
-      if (data && data.mid) {
-        document.querySelector("#usernameInput").value = data.mid;
+      if (data) {
+        document.querySelector("#idInput").value = data.mid;
+        document.querySelector("#pwdInput").value = data.mpwd;
         document.querySelector("#nameInput").value = data.mname;
+        document.querySelector("#phoneInput").value = data.mphone;
       }
     })
     .catch((e) => {

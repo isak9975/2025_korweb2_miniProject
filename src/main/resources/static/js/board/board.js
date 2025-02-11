@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     5: "질문 게시판",
   };
 
-  document.getElementById("board-title").innerText = boardTitles[type] || "기본 게시판 제목";
+  document.getElementById("board-title").innerText = boardTitles[type];
 
   console.log("board.js open");
   console.log(new URL(location.href));

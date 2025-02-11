@@ -16,17 +16,26 @@
       <div class="container">
         <h1 class="title">마이페이지</h1>
 
-        <label for="username"><b>아이디</b></label>
+        <label for="id"><b>아이디(수정불가)</b></label>
         <input
           type="text"
           placeholder="아이디"
-          name="username"
-          id="usernameInput"
-          class="form-control usernameInput"
+          name="id"
+          id="idInput"
+          class="form-control idInput"
           readonly
         />
 
-        <label for="name"><b>이름</b></label>
+        <label for="pwd"><b>비밀번호</b></label>
+        <input
+          type="text"
+          placeholder="비밀번호"
+          name="pwd"
+          id="pwdInput"
+          class="form-control pwdInput"
+        />
+
+        <label for="name"><b>이름(수정불가)</b></label>
         <input
           type="text"
           placeholder="이름"
@@ -44,7 +53,9 @@
           class="form-control phoneInput"
         />
 
-        <button type="submit" class="updateBtn">정보 수정</button>
+        <button type="submit" class="updateBtn">정보수정</button>
+        <button type="submit" class="logoutBtn">로그아웃</button>
+        <button type="submit" class="signoutBtn">회원탈퇴</button>
       </div>
     </main>
   </body>
