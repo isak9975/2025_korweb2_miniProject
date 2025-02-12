@@ -1,10 +1,14 @@
+console.log("체크1");
+
 const getMyInfo = () => {
   fetch("/member/mypage.do", { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
-      if (data && data.mid) {
-        document.querySelector("#usernameInput").value = data.mid;
+      if (data) {
+        document.querySelector("#idInput").value = data.mid;
+        document.querySelector("#pwdInput").value = data.mpwd;
         document.querySelector("#nameInput").value = data.mname;
+        document.querySelector("#phoneInput").value = data.mphone;
       }
     })
     .catch((e) => {
@@ -13,16 +17,4 @@ const getMyInfo = () => {
       window.location.href = "http://localhost:8080/";
     });
 };
-
 document.addEventListener("DOMContentLoaded", getMyInfo);
-
-// const onDelete = ( ) => {
-//     let result = confirm('정말 탈퇴 하실건가요?');
-//     if( result == false ) { return; }
-//     fetch( '/member/delete.do' , { method : "DELETE"} )
-//     .then( response => response.json() )
-//     .then( data => {
-//         if( data == true ){ alert('탈퇴 성공'); location.href='/'; }
-//         else{ alert('탈퇴 실패'); }
-//     }).catch( e => { console.log(e); })
-// }
