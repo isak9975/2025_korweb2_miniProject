@@ -66,17 +66,18 @@ public class BoardService {
 
 
     ///2. 게시물 전체 조회
-    public List<BoardDto> findAll(){
+    public List<BoardDto> findAll(int cno){
         //1. 현재 저장되어 있는 게시물 List<Entity>로 불러오기
         List<BoardEntity> boardEntityList = boardRepository.findAll();
         //2. 반환할때 필요한 List<Dto> 저장소 만들어주기.
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         //3. 엔티티를 돌리며 하나씩 조회해서 Dto로 변환 후 List<Dto>에 넣어줌
-        boardEntityList.forEach(boardEntity -> {
-            boardDtoList.add( boardEntity.toDto() );
+        boardEntityList.forEach(entity -> {
+            if (entity.getCategoryEntity().getCno() == cno) {
+            boardDtoList.add( entity.toDto() );
+            }
         });
-
         return boardDtoList;
     }
 

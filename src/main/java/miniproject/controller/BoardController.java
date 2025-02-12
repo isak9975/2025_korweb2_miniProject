@@ -20,8 +20,8 @@ public class BoardController {
 
     //2. 게시물 전체 조회
     @GetMapping("/board/findall.do")
-    public List<BoardDto> findAll(){
-        return boardService.findAll();
+    public List<BoardDto> findAll(@RequestParam int cno){
+        return boardService.findAll(cno);
     }
 
     //3. 게시물 개별 조회
