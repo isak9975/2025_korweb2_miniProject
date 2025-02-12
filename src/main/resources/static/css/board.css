@@ -5,6 +5,16 @@ section {
   padding: 20px;
   background-color: #f4f4f4;
 }
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#board-title {
+}
+#board-button {
+}
 
 .board {
   background-color: #fff;
@@ -25,15 +35,15 @@ section {
   font-weight: bold;
 }
 
-.title,
+.title {
+  flex: 5;
+}
 .author,
-.comments,
-.date {
+.comments {
   flex: 1;
 }
-
-.title {
-  color: #007bff;
+.date {
+  flex: 0.5;
 }
 
 .post:hover {

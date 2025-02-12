@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>게시판</title>
     <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/header.css" />
-    <link rel="stylesheet" href="/board.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/board.css" />
     <script src="/js/header.js"></script>
   </head>
-  <div th:insert="~{header :: header}" class="header-placeholder"></div>
   <body>
+    <div th:insert="~{header :: header}" class="header-placeholder"></div>
     <section>
+      <div class="titleBox">
+        <h1 id="board-title"></h1>
+        <button id="board-button">게시물 작성</button>
+      </div>
       <div class="board">
         <div class="header">
           <div class="title">제목</div>
@@ -19,21 +23,11 @@
           <div class="comments">댓글수</div>
           <div class="date">날짜</div>
         </div>
-        <div class="post">
-          <div class="title">게시물 제목 1</div>
-          <div class="author">작성자 1</div>
-          <div class="comments">10</div>
-          <div class="date">2023-10-01</div>
+        <div class="posts-container">
+          <!-- 게시물 목록이 여기에 표시됩니다. -->
         </div>
-        <div class="post">
-          <div class="title">게시물 제목 2</div>
-          <div class="author">작성자 2</div>
-          <div class="comments">5</div>
-          <div class="date">2023-10-02</div>
-        </div>
-        <!-- 추가 게시물 -->
       </div>
     </section>
-    <script src="/js/board/board.js"></script>
+    <script src="/js/board/board.js" defer></script>
   </body>
 </html>

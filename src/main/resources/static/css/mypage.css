@@ -9,9 +9,7 @@ form {
   font-size: 20px;
   margin-bottom: 10px;
 }
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type="text"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -20,7 +18,9 @@ input[type="password"] {
   background: #f1f1f1;
 }
 
-.updateBtn {
+.updateBtn,
+.logoutBtn,
+.signoutBtn {
   background-color: dimgray;
   color: white;
   padding: 16px 20px;
