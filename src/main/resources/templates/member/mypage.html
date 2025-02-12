@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/mypage.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <script src="/js/header.js" defer></script>
-    <script src="/js/member/mypage.js" defer></script>
   </head>
   <body>
     <div th:insert="~{header :: header}" class="header-placeholder"></div>
@@ -35,7 +34,7 @@
           class="form-control pwdInput"
         />
 
-        <label for="name"><b>이름(수정불가)</b></label>
+        <label for="name"><b>이름</b></label>
         <input
           type="text"
           placeholder="이름"
@@ -53,10 +52,18 @@
           class="form-control phoneInput"
         />
 
-        <button type="submit" class="updateBtn">정보수정</button>
-        <button type="submit" class="logoutBtn">로그아웃</button>
-        <button type="submit" class="signoutBtn">회원탈퇴</button>
+        <button onclick="onUpdate()" type="button" class="updateBtn">
+          정보수정
+        </button>
+        <button onclick="onLogout()" type="button" class="logoutBtn">
+          로그아웃
+        </button>
+        <button onclick="onDelete()" type="button" class="signoutBtn">
+          회원탈퇴
+        </button>
       </div>
     </main>
+    <script src="/js/member/mypage.js" defer></script>
+    <script src="/js/member/myinfo.js" defer></script>
   </body>
 </html>

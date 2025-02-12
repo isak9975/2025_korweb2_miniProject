@@ -129,21 +129,20 @@ public class MemberService {
 
     // [7] 내 정보 수정 !
     @Transactional
-    public boolean myUpdate(MemberDto memberDto) {
-        String mid = getSession(); // 현재 로그인 회원 아이디 조회
-        if(mid != null) {
-            // 조회된 회원 아이디로 회원 정보 엔티티 조회
-            MemberEntity memberEntity = memberRepository.findByMid(mid);
-            memberEntity.setMpwd(memberDto.getMpwd()); // 비밀번호 설정
-            memberEntity.setMname(memberDto.getMname()); // 이름 설정
-            memberEntity.setMphone(memberDto.getMphone()); // 전화번호 설정
+    public boolean myUpdate( MemberDto memberDto ){
+        String mid = getSession();
+        if( mid != null ){
+            MemberEntity memberEntity = memberRepository.findByMid( mid );
+            memberEntity.setMpwd( memberDto.getMpwd() );
+            memberEntity.setMname( memberDto.getMname() );
+            memberEntity.setMphone( memberDto.getMphone() );
             return true;
         }
         return false;
-    } // f ed
+    } // f end
 
     // [8] 회원 탈퇴 !
-    public boolean myDelete(int mno) {
+    public boolean myDelete() {
         String mid = getSession(); // 현재 로그인 회원 아이디 조회
         // 조회된 회원 아이디로 회원 정보 엔티티 조회
         MemberEntity memberEntity = memberRepository.findByMid(mid);

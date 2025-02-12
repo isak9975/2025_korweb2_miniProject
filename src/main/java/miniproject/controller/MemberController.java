@@ -58,15 +58,15 @@ public class MemberController {
     } // f ed
 
     // [7] 내 정보 수정
-    @PutMapping("/member/myupdate.do")
+    @PutMapping("/member/update.do")
     public boolean myUpdate(@RequestBody MemberDto memberDto) {
         return memberService.myUpdate(memberDto);
     } // f ed
 
     // [8] 회원 탈퇴
-    @DeleteMapping("/member/mydelete.do")
-    public boolean myDelete(@RequestParam int mno) {
-        return memberService.myDelete(mno);
-    } // f ed
+    @DeleteMapping("/member/delete.do")
+    public boolean myDelete(){
+        return memberService.myDelete();
+    }
 
 } // class ed
