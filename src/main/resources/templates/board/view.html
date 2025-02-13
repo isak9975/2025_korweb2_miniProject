@@ -10,20 +10,22 @@
   </head>
   <body>
     <div th:insert="~{header :: header}" class="header-placeholder"></div>
-    <div class="userBox">
-      <span class="mnameBox"> 작성자 아이디 </span>
-      <span class="bviewBox"> 조회수 </span>
-      <span class="cdateBox"> 작성일 </span>
-    </div>
-    <div class="btitle">게시물 제목</div>
-    <div class="bcontent">게시물 내용</div>
-    <div>
-      <textarea class="rcontentInput form-control"> </textarea>
-      <button class="btn btn-primary" onclick="onReplyWrite()" type="button">
-        댓글 게시
-      </button>
-    </div>
-    <div class="replyBox">댓글목록</div>
+    <section class="section">
+      <div class="userBox">
+        <span class="mnameBox"> 작성자 아이디 </span>
+        <span class="bviewBox"> 조회수 </span>
+        <span class="cdateBox"> 작성일 </span>
+      </div>
+      <div class="btitle">게시물 제목</div>
+      <div class="bcontent">게시물 내용</div>
+      <div>
+        <textarea class="rcontentInput form-control"> </textarea>
+        <button class="btn btn-primary" onclick="onReplyWrite()" type="button">
+          댓글 게시
+        </button>
+      </div>
+      <div class="replyBox">댓글목록</div>
+    </section>
     <script src="/js/board/view.js"></script>
   </body>
 </html>
