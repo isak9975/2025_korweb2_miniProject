@@ -31,4 +31,9 @@ public class ViewController {
     public String board(@RequestParam(value = "type", required = false) String type) {
         return "board/board"; // templates/board/board.html로 매핑됩니다.
     }
+
+    //게시물 개별 조회 페이지를 반환
+    @GetMapping("/view")
+    public String boardview(){return "/board/view.html";}
+
 }

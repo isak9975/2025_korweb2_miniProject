@@ -3,6 +3,8 @@ package miniproject.model.dto;
 import lombok.*;
 import miniproject.model.entity.BoardEntity;
 
+import java.util.List;
+
 @Getter @Setter @ToString @Builder
 @NoArgsConstructor @AllArgsConstructor
 public class BoardDto {
@@ -29,6 +31,9 @@ public class BoardDto {
         private String mid;
         //게시물 카테고리 이름
         private String cname;
+
+    /// +댓글 리스트
+        private List<ReplyDto> replyDto;
 
 
     // dto -> entity 변환 메서드

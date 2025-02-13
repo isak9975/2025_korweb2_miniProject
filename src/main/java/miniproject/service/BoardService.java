@@ -73,6 +73,7 @@ public class BoardService {
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         //3. 엔티티를 돌리며 하나씩 조회해서 Dto로 변환 후 List<Dto>에 넣어줌
+
         boardEntityList.forEach(entity -> {
             if (entity.getCategoryEntity().getCno() == cno) {
             boardDtoList.add( entity.toDto() );
@@ -106,13 +107,11 @@ public class BoardService {
 
                     replyDtoList.add(reply.toDto());
 
-
                 }
 
             }));
-//            return replyDtoList;
 
-
+            boardDto.setReplyDto(replyDtoList);
 
             //Dto 를 반환;
             return boardDto;

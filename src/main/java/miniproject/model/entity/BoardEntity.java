@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import miniproject.model.dto.BoardDto;
 
+import java.time.format.DateTimeFormatter;
+
 @Entity
 @Table(name = "board")
 @Getter
@@ -45,6 +47,10 @@ public class BoardEntity extends BaseTime {
                 .cno(this.categoryEntity.getCno())
                 .mid(this.memberEntity.getMid())
                 .cname(this.categoryEntity.getCname())
+                //날짜 데이터 값이 너무 지저분하게 나와서 => 2025-02-13T19:01:10
+                //format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) 사용하여 제한하여 보냄.
+                //to String 안하면 Dto(String)에서 못받음.
+                .cdate(this.getCdate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString())
                 .build();
     }
 
