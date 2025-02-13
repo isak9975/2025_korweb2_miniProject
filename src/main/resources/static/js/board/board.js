@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const postsContainer = document.querySelector(".posts-container");
         let html = "";
         data.forEach((board) => {
-          html += `<div class="post">
+          html += `<a href="/board/view?bno=${ board.bno }" class="post">
                     <div class="post-title">${board.btitle}</div>
                     <div class="post-date">${board.cdate}</div>
                     <div class="post-author">${board.mid}</div>
                     <div class="post-comments">${board.bview}</div>
-                  </div>`;
+                  </a>`;
         });
         postsContainer.innerHTML = html;
       })
