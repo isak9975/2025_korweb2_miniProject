@@ -180,6 +180,12 @@ public class MemberService {
             relatedEntity.setMemberEntity(null);
         }
 
+        // MemberEntity 를 FK 로 참조 중인 boardEntity 의 관계를 끊음
+        List<BoardEntity> boardEntities = boardRepository.findByMemberEntity(memberEntity);
+        for (BoardEntity relatedEntity : boardEntities) {
+            relatedEntity.setMemberEntity(null);
+        }
+
         memberRepository.delete(memberEntity); // 엔티티 삭제 = 탈퇴
         deleteSession(); // 로그아웃
         return true; // 반환
