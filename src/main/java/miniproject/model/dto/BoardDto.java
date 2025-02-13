@@ -27,8 +27,10 @@ public class BoardDto {
         private int cno;
 
     /// 사용자에게 보여주기 위한
-        //게시물 작성자 이름
+        //게시물 작성자 아이디
         private String mid;
+        //게시물 작성자 닉네임
+        private String mname;
         //게시물 카테고리 이름
         private String cname;
 
