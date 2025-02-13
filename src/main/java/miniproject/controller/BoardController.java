@@ -1,6 +1,7 @@
 package miniproject.controller;
 
 import miniproject.model.dto.BoardDto;
+import miniproject.model.dto.ReplyDto;
 import miniproject.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class BoardController {
 
     //2. 게시물 전체 조회
     @GetMapping("/board/findall.do")
-    public List<BoardDto> findAll(){
-        return boardService.findAll();
+    public List<BoardDto> findAll(@RequestParam int cno){
+        return boardService.findAll(cno);
     }
 
     //3. 게시물 개별 조회
@@ -42,5 +43,13 @@ public class BoardController {
         return boardService.delete(bno);
     }
 
+//===================댓글====================================================================
+    //6. 댓글 작성
+    @PostMapping("/reply/write.do")
+    public boolean replyWirite(@RequestBody ReplyDto replyDto){return boardService.replyWrite(replyDto);}
+
+    //7. 특정 게시물의 댓글 전체 조회
+    @GetMapping("/reply/findall.do")
+    public List<ReplyDto> replyFindAll(@RequestParam int bno){return boardService.replyFindAll(bno);}
 
 }
