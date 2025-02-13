@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/view.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <title class="htmlTitle">게시글</title>
+  </head>
+  <body>
+    <div th:insert="~{header :: header}" class="header-placeholder"></div>
+    <div class="userBox">
+      <span class="mnameBox"> 작성자 아이디 </span>
+      <span class="bviewBox"> 조회수 </span>
+      <span class="cdateBox"> 작성일 </span>
+    </div>
+    <div class="btitle">게시물 제목</div>
+    <div class="bcontent">게시물 내용</div>
+    <div>
+      <textarea class="rcontentInput form-control"> </textarea>
+      <button class="btn btn-primary" onclick="onReplyWrite()" type="button">
+        댓글 게시
+      </button>
+    </div>
+    <div class="replyBox">댓글목록</div>
+    <script src="/js/board/view.js"></script>
+  </body>
+</html>
