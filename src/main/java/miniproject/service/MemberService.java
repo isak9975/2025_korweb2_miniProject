@@ -190,4 +190,25 @@ public class MemberService {
         deleteSession(); // 로그아웃
         return true; // 반환
     } // f ed
+
+    // [9] 아이디 찾기
+    public String findId(String mname,String mphone) {
+        MemberEntity memberEntity = memberRepository.findByMnameAndMphone(mname,mphone);
+        if (memberEntity != null) {
+            MemberDto memberDto = memberEntity.toDto();
+            return memberDto.getMid();
+        }
+        return null;
+    } // f ed
+
+    // [10] 비밀번호 찾기
+    public String findPw(String mid,String mphone) {
+        MemberEntity memberEntity = memberRepository.findByMidAndMphone(mid,mphone);
+        if (memberEntity != null) {
+            MemberDto memberDto = memberEntity.toDto();
+            return memberDto.getMpwd();
+        }
+        return null;
+    } // f ed
+
 }
