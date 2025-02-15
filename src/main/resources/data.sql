@@ -1,6 +1,6 @@
 -- member sample
 insert into member(mid, mpwd, mname, mphone, cdate, udate) values
-("user001", "password1", "아메리카노", "010-1111-2222", now(), now()),
+("123", "123", "아메리카노", "010-1111-2222", now(), now()),
 ("user002", "password2", "카푸치노", "010-2233-3444", now(), now()),
 ("user003", "password3", "라떼", "010-3344-4555", now(), now()),
 ("user004", "password4", "에스프레소", "010-4455-5666", now(), now()),
@@ -213,7 +213,7 @@ VALUES
  5, 5, NOW(), NOW(), 66);
 
 
-//댓글
+--댓글
 -- 잡담에 관한 댓글 (rno=2 삭제)
 INSERT INTO reply (rcontent, bno, mno) VALUES
 ('오늘 커피 마셨는데 진짜 맛있었어요!', 1, 1),
