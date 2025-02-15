@@ -69,4 +69,16 @@ public class MemberController {
         return memberService.myDelete();
     }
 
+    // [9] 내 아이디 찾기
+    @GetMapping("/member/findid.do")
+    public String findId(@RequestParam String mname , @RequestParam String mphone) {
+        return memberService.findId(mname,mphone);
+    }
+
+    // [10] 내 비밀번호 찾기
+    @GetMapping("/member/findpw.do")
+    public String findPw(@RequestParam String mid , @RequestParam String mphone) {
+        return memberService.findPw(mid,mphone);
+    }
+
 } // class ed
