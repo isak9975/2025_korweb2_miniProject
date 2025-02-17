@@ -53,3 +53,10 @@ section {
 .post:hover {
   background-color: #f1f1f1;
 }
+.divSet{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
