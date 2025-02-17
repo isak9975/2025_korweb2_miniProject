@@ -74,7 +74,7 @@ public class BoardService {
     ///2. 게시물 전체 조회
     public PageDto findAll(int cno,int page){
         //페이징 처리
-        Pageable pageable = PageRequest.of(page-1,5, Sort.by(Sort.Direction.DESC,"bno"));
+        Pageable pageable = PageRequest.of(page-1,8, Sort.by(Sort.Direction.DESC,"bno"));
         //1. 현재 저장되어 있는 게시물 page<Entity>로 불러오기 -> 페이징 처리
         Page<BoardEntity> boardEntityList = boardRepository.findByCategoryEntity_Cno(cno,pageable);
         //2. 반환할때 필요한 List<Dto> 저장소 만들어주기.

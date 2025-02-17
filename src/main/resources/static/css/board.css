@@ -1,6 +1,6 @@
 section {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 50px 170px;
   padding: 20px;
   background-color: #f4f4f4;
 }
@@ -8,9 +8,10 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #board-title {
+  font-size: 20px;
 }
 #board-button {
 }
@@ -51,4 +52,11 @@ section {
 
 .post:hover {
   background-color: #f1f1f1;
+}
+.divSet{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 }
