@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/css/view.css" />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/header.css" />
+    <script src="/js/header.js"></script>
+    <script src="/js/board/view.js"></script>
     <title class="htmlTitle">게시글</title>
   </head>
   <body>
@@ -19,7 +21,7 @@
       <div class="btitle">게시물 제목</div>
       <div class="bcontent">게시물 내용</div>
       <div>
-        <textarea class="rcontentInput form-control"> </textarea>
+        <textarea class="rcontentInput form-control"></textarea>
         <button class="btn btn-primary" onclick="onReplyWrite()" type="button">
           댓글 게시
         </button>
@@ -27,6 +29,5 @@
       <h1 class="replyMenu">댓글목록</h1>
       <div class="replyBox"></div>
     </section>
-    <script src="/js/board/view.js"></script>
   </body>
 </html>
