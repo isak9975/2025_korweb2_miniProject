@@ -46,6 +46,83 @@
 
 ![Image](https://github.com/user-attachments/assets/3b41b09b-65a6-4707-bde7-e88f875621be)
 
-## 7. 프로젝트 실행 결과 녹화본
+## 7. 프로젝트 구조 트리(TREE)
+
+C:.
+├─.gradle
+│  ├─8.8
+│  │  ├─checksums
+│  │  ├─dependencies-accessors
+│  │  ├─executionHistory
+│  │  ├─expanded
+│  │  ├─fileChanges
+│  │  ├─fileHashes
+│  │  └─vcsMetadata
+│  ├─buildOutputCleanup
+│  └─vcs-1
+├─.idea
+│  ├─modules
+│  └─shelf
+│      ├─25__2__17__오후_7_07,_업데이트_전에_커밋되지_않은_변경_내용_[변경]
+│      └─25__2__17__오후_7_07,_업데이트_전에_커밋되지_않은_변경_내용_[변경]1
+├─build
+│  ├─classes
+│  │  └─java
+│  │      └─main
+│  │          └─miniproject
+│  │              ├─controller
+│  │              ├─model
+│  │              │  ├─dto
+│  │              │  ├─entity
+│  │              │  └─repository
+│  │              └─service
+│  ├─generated
+│  │  └─sources
+│  │      ├─annotationProcessor
+│  │      │  └─java
+│  │      │      └─main
+│  │      └─headers
+│  │          └─java
+│  │              └─main
+│  ├─resources
+│  │  └─main
+│  │      ├─static
+│  │      │  ├─css
+│  │      │  ├─img
+│  │      │  └─js
+│  │      │      ├─board
+│  │      │      └─member
+│  │      └─templates
+│  │          ├─board
+│  │          └─member
+│  └─tmp
+│      └─compileJava
+│          └─compileTransaction
+│              ├─backup-dir
+│              └─stash-dir
+├─gradle
+│  └─wrapper
+└─src
+    └─main
+        ├─java
+        │  └─miniproject
+        │      ├─controller
+        │      ├─model
+        │      │  ├─dto
+        │      │  ├─entity
+        │      │  └─repository
+        │      └─service
+        └─resources
+            ├─static
+            │  ├─css
+            │  ├─img
+            │  └─js
+            │      ├─board
+            │      └─member
+            └─templates
+                ├─board
+                └─member
+
+## 8. 프로젝트 실행 결과 녹화본
 
 
