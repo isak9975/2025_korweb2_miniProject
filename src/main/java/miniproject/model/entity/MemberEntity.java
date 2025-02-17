@@ -27,6 +27,7 @@ public class MemberEntity extends BaseTime {
     // entity -> dto 변환 함수
     public MemberDto toDto() {
         return MemberDto.builder()
+                .mno(this.mno)
                 .mid(this.mid)
                 .mpwd(this.mpwd)
                 .mname(this.mname)

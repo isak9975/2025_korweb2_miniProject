@@ -1,6 +1,7 @@
 package miniproject.service;
 
 
+import jakarta.transaction.Transactional;
 import miniproject.model.dto.BoardDto;
 import miniproject.model.dto.MemberDto;
 import miniproject.model.dto.PageDto;
@@ -134,7 +135,7 @@ public class BoardService {
 
             //2) 댓글 선회하며(entity=>Dto) 게시물에 맞는 댓글 가져오기
             replyEntityList.forEach((reply -> {
-
+                System.out.println(reply);
                 if(reply.getBoardEntity().getBno()==bno) {
 
                     replyDtoList.add(reply.toDto());
@@ -226,8 +227,9 @@ public class BoardService {
 
 //===================================댓글 서비스 =============================================================================
     //6. 댓글 쓰기
+    @Transactional
     public boolean replyWrite(ReplyDto replyDto){
-
+        System.out.println(replyDto);
         //[유효성검사] 1. 현재 로그인된 회원 정보 조회
         MemberDto memberDto = memberService.myInfo();
         //2. 만약에 로그인된 정보가 없다면 종료
@@ -246,6 +248,8 @@ public class BoardService {
         //4. 입력 받은 매개변수 Dto => entity로 변환
         ReplyEntity replyEntity = replyDto.toEntity();
         ReplyEntity saveEntity = replyRepository.save(replyEntity);
+        saveEntity.setBoardEntity(boardEntity);
+        saveEntity.setMemberEntity(memberEntity);
 
         if(saveEntity.getRno()>0){return true;} // 댓글번호 생성 되었다면 등록 성공.
         return false;

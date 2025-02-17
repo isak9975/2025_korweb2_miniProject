@@ -1,3 +1,7 @@
+const getSessionMno = () => {
+  return sessionStorage.getItem("sessionMno");
+};
+
 const onFind = () => {
   const bno = new URL(location.href).searchParams.get("bno");
 
@@ -22,7 +26,10 @@ const onReplyWrite = () => {
   const rcontentInput = document.querySelector(".rcontentInput");
   const rcontent = rcontentInput.value;
   const bno = new URL(location.href).searchParams.get("bno");
-  const obj = { rcontent, bno };
+  const mno = getSessionMno();
+  const obj = { rcontent , bno, mno };
+  console.log(obj);
+
   const option = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
