@@ -7,63 +7,85 @@
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/mypage.css" />
     <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/board.css" />
+    <!-- 보드 스타일 추가 -->
     <script src="/js/header.js" defer></script>
   </head>
   <body>
     <div th:insert="~{header :: header}" class="header-placeholder"></div>
     <main>
       <div class="container">
-        <h1 class="title">마이페이지</h1>
+        <article class="leftBox">
+          <h1 class="title">마이페이지</h1>
 
-        <label for="id"><b>아이디(수정불가)</b></label>
-        <input
-          type="text"
-          placeholder="아이디"
-          name="id"
-          id="idInput"
-          class="form-control idInput"
-          readonly
-        />
+          <label for="id"><b>아이디(수정불가)</b></label>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="id"
+            id="idInput"
+            class="form-control idInput"
+            readonly
+          />
 
-        <label for="pwd"><b>비밀번호</b></label>
-        <input
-          type="text"
-          placeholder="비밀번호"
-          name="pwd"
-          id="pwdInput"
-          class="form-control pwdInput"
-        />
+          <label for="pwd"><b>비밀번호</b></label>
+          <input
+            type="text"
+            placeholder="비밀번호"
+            name="pwd"
+            id="pwdInput"
+            class="form-control pwdInput"
+          />
 
-        <label for="name"><b>이름</b></label>
-        <input
-          type="text"
-          placeholder="이름"
-          name="name"
-          id="nameInput"
-          class="form-control nameInput"
-        />
+          <label for="name"><b>이름</b></label>
+          <input
+            type="text"
+            placeholder="이름"
+            name="name"
+            id="nameInput"
+            class="form-control nameInput"
+          />
 
-        <label for="phone"><b>연락처</b></label>
-        <input
-          type="text"
-          placeholder="010-1234-5678"
-          name="phone"
-          id="phoneInput"
-          class="form-control phoneInput"
-        />
+          <label for="phone"><b>연락처</b></label>
+          <input
+            type="text"
+            placeholder="010-1234-5678"
+            name="phone"
+            id="phoneInput"
+            class="form-control phoneInput"
+          />
 
-        <button onclick="onUpdate()" type="button" class="updateBtn">
-          정보수정
-        </button>
-        <button onclick="onLogout()" type="button" class="logoutBtn">
-          로그아웃
-        </button>
-        <button onclick="onDelete()" type="button" class="signoutBtn">
-          회원탈퇴
-        </button>
+          <button onclick="onUpdate()" type="button" class="updateBtn">
+            정보수정
+          </button>
+          <button onclick="onLogout()" type="button" class="logoutBtn">
+            로그아웃
+          </button>
+          <button onclick="onDelete()" type="button" class="signoutBtn">
+            회원탈퇴
+          </button>
+        </article>
+        <article class="rightBox">
+          <ul class="selectBox">
+            <li class="leftBtn">님의 게시글 조회</li>
+            <li class="rightBtn">님의 댓글 조회</li>
+          </ul>
+          <div class="rightBox_content1">
+            <div class="board">
+              <div class="header">
+                <div class="title">제목</div>
+                <div class="author">작성자</div>
+                <div class="date">작성일</div>
+                <div class="comments">댓글</div>
+              </div>
+            </div>
+          </div>
+          <div class="rightBox_content2">미구현</div>
+        </article>
       </div>
     </main>
     <script src="/js/member/mypage.js" defer></script>
     <script src="/js/member/myinfo.js" defer></script>
+    <script src="/js/member/myboard.js" defer></script>
   </body>
 </html>

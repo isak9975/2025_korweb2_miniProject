@@ -17,9 +17,8 @@ function validateInputs() {
   const mname = mnameInput.value;
 
   let isFormValid = true;
-  let checkNo = 0;
 
-  //아이디 체크(길이)
+  // 아이디 체크(길이)
   if (mid.length >= 6 && mid.length <= 20) {
     const checktext1 = document.querySelector(".checktext1");
     const checkbox1 = document.querySelector(".checkbox1");
@@ -33,7 +32,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //아이디 체크(문자열+숫자)
+  // 아이디 체크(문자열+숫자)
   if (/[0-9]/.test(mid) && /[a-zA-Z]/.test(mid)) {
     const checktext2 = document.querySelector(".checktext2");
     const checkbox2 = document.querySelector(".checkbox2");
@@ -47,7 +46,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //비밀번호 체크(길이)
+  // 비밀번호 체크(길이)
   if (mpwd.length >= 6 && mpwd.length <= 20) {
     const checktext3 = document.querySelector(".checktext3");
     const checkbox3 = document.querySelector(".checkbox3");
@@ -61,7 +60,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //비밀번호 체크(문자열+숫자)
+  // 비밀번호 체크(문자열+숫자)
   if (/[0-9]/.test(mpwd) && /[a-zA-Z]/.test(mpwd)) {
     const checktext4 = document.querySelector(".checktext4");
     const checkbox4 = document.querySelector(".checkbox4");
@@ -75,7 +74,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //비밀번호 체크(특수문자)
+  // 비밀번호 체크(특수문자)
   if (/[!#?]/.test(mpwd)) {
     const checktext5 = document.querySelector(".checktext5");
     const checkbox5 = document.querySelector(".checkbox5");
@@ -89,7 +88,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //비밀번호 확인
+  // 비밀번호 확인
   if (mpwd === mpwdCheck) {
     const checktext6 = document.querySelector(".checktext6");
     const checkbox6 = document.querySelector(".checkbox6");
@@ -103,7 +102,7 @@ function validateInputs() {
     isFormValid = false;
   }
 
-  //이름 확인
+  // 이름 확인
   if (mname.length >= 2 && mname.length <= 20) {
     const checktext7 = document.querySelector(".checktext7");
     const checkbox7 = document.querySelector(".checkbox7");
@@ -116,10 +115,12 @@ function validateInputs() {
     checkbox7.innerHTML = "☐";
     isFormValid = false;
   }
-  //연락처
+
+  // 연락처
   document.getElementById("mphoneInput").addEventListener("input", (x) => {
     let input = x.target.value.replace(/-/g, "");
     if (input.startsWith("010")) {
+      isFormValid = false;
       if (input.length > 3)
         input = input.substring(0, 3) + "-" + input.substring(3);
       if (input.length > 8)
@@ -133,16 +134,23 @@ function validateInputs() {
     if (input.length === 13) {
       checktext8.style.color = "#79CF9F";
       checkbox8.innerHTML = "☑";
+      isFormValid = true;
     } else {
       checktext8.style.color = "";
       checkbox8.innerHTML = "☐";
+      isFormValid = false;
     }
   });
 
   // 모든 조건이 충족되면 버튼 활성화
   const btnDone = document.querySelector(".signupBtn");
-  btnDone.disabled = false;
-  btnDone.style.opacity = "0.9";
+  if (isFormValid) {
+    btnDone.disabled = false;
+    btnDone.style.opacity = "0.9";
+  } else {
+    btnDone.disabled = true;
+    btnDone.style.opacity = "0.5";
+  }
 }
 
 document.getElementById("signupForm").addEventListener("submit", (event) => {
