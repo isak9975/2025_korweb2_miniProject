@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(new URL(location.href).searchParams);
   console.log(new URL(location.href).searchParams.get("cno"));
 
+
   const findAll = () => {
+
     const cno = new URL(location.href).searchParams.get("type");
     const option = { method: "GET" };
     fetch(`/board/findall.do?cno=${cno}`, option)

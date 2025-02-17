@@ -35,6 +35,7 @@ public class ReplyEntity {
                 .rcontent(this.rcontent)
                 .bno(this.boardEntity.getBno())
                 .mno(this.memberEntity.getMno())
+                .mid(this.memberEntity.getMid())
                 .build();
     }
 }

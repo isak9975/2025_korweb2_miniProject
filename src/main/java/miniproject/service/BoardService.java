@@ -3,6 +3,7 @@ package miniproject.service;
 
 import miniproject.model.dto.BoardDto;
 import miniproject.model.dto.MemberDto;
+import miniproject.model.dto.PageDto;
 import miniproject.model.dto.ReplyDto;
 import miniproject.model.entity.BoardEntity;
 import miniproject.model.entity.CategoryEntity;
@@ -13,6 +14,10 @@ import miniproject.model.repository.CategoryRepository;
 import miniproject.model.repository.MemberRepository;
 import miniproject.model.repository.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -67,20 +72,46 @@ public class BoardService {
 
 
     ///2. 게시물 전체 조회
-    public List<BoardDto> findAll(int cno){
-        //1. 현재 저장되어 있는 게시물 List<Entity>로 불러오기
-        List<BoardEntity> boardEntityList = boardRepository.findAll();
+    public PageDto findAll(int cno,int page){
+        //페이징 처리
+        Pageable pageable = PageRequest.of(page-1,5, Sort.by(Sort.Direction.DESC,"bno"));
+        //1. 현재 저장되어 있는 게시물 page<Entity>로 불러오기 -> 페이징 처리
+        Page<BoardEntity> boardEntityList = boardRepository.findByCategoryEntity_Cno(cno,pageable);
         //2. 반환할때 필요한 List<Dto> 저장소 만들어주기.
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         //3. 엔티티를 돌리며 하나씩 조회해서 Dto로 변환 후 List<Dto>에 넣어줌
 
         boardEntityList.forEach(entity -> {
-            if (entity.getCategoryEntity().getCno() == cno) {
+//            if (entity.getCategoryEntity().getCno() == cno) { //페이징 처리에서 cno로 찾아주기에 안함
             boardDtoList.add( entity.toDto() );
-            }
+//            }
         });
-        return boardDtoList;
+        //return boardDtoList; -->  페이징 처리 때문에 주석 처리함.
+        //(1)현재 페이지 번호 = page
+        //(2)전체 페이지 번호 - totalPage JPA 에서 지원
+            int totalPage = boardEntityList.getTotalPages();
+        //(3)전체 조회 된 수 = totalCount JPA의 .getTotalElemnts()
+            long totalCount = boardEntityList.getTotalElements();
+
+            int btnSize = 5; //페이지당 표시할 페이징 버튼 수
+
+            int startBtn = ((page-1)/btnSize)*btnSize+1;
+
+            int endBtn = startBtn + (btnSize-1);
+
+            if(endBtn >= totalPage)endBtn=totalPage;
+
+            PageDto pageDto = PageDto.builder()
+                    .totalcount(totalCount)
+                    .page(page)
+                    .totalpage(totalPage)
+                    .startbtn(startBtn)
+                    .endbtn(endBtn)
+                    .data(boardDtoList)
+                    .build();
+        return pageDto;
+
     }
 
     ///3. 게시물 개별 조회
