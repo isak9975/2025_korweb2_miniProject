@@ -48,7 +48,7 @@ public class BoardController {
 //===================댓글====================================================================
     //6. 댓글 작성
     @PostMapping("/reply/write.do")
-    public boolean replyWirite(@RequestBody ReplyDto replyDto){return boardService.replyWrite(replyDto);}
+    public boolean replyWrite(@RequestBody ReplyDto replyDto){return boardService.replyWrite(replyDto);}
 
     //7. 특정 게시물의 댓글 전체 조회
     @GetMapping("/reply/findall.do")
