@@ -36,4 +36,8 @@ public class ViewController {
     @GetMapping("/view")
     public String boardview(){return "/board/view.html";}
 
+    //게시물 개별 작성 페이지를 반환
+    @GetMapping("/write")
+    public String boardwrite(){return "/board/write.html";}
+
 }

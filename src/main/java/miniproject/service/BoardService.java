@@ -39,15 +39,16 @@ public class BoardService {
         BoardEntity boardEntity = boardDto.toEntity();
 
         //만약 로그인된 상태가 아니면 글쓰기 종로
-            if(loginDto == null){
+            if(loginDto.getMid() == null){
                 System.out.println("미로그인 상태");
                 return false;
             }
 
-        int loginMno = memberService.myInfo().getMno();
+        int loginMno = memberRepository.findByMid(memberService.getSession()).getMno(); //
 
         //로그인된 회원번호로 회원 엔티티르 호출 및 게시물 엔티티에 대입
-        MemberEntity loginEntity = memberRepository.findById(loginMno).get();
+
+        MemberEntity loginEntity = memberRepository.findById(loginMno).get(); //
 
     boardEntity.setMemberEntity(loginEntity);
 
