@@ -34,14 +34,18 @@ section {
   font-weight: bold;
 }
 
-.title {
+.title,
+.post-title {
   flex: 5;
 }
 .author,
-.comments {
+.comments,
+.post-author,
+.post-comments {
   flex: 1;
 }
-.date {
+.date,
+.post-date {
   flex: 0.5;
 }
 
