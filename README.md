@@ -50,7 +50,6 @@
 
 ![Image](https://github.com/user-attachments/assets/905c6d64-00d6-4c41-a6dd-e538c5e0ae29)
 
-
 ![Image](https://github.com/user-attachments/assets/10ef5ccc-fced-4f24-afc0-e27fa0fc57d3)
 
 ## 8. 프로젝트 실행 결과 녹화본
