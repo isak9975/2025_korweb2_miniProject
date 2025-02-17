@@ -1,9 +1,11 @@
 package miniproject.controller;
 
 import miniproject.model.dto.BoardDto;
+import miniproject.model.dto.PageDto;
 import miniproject.model.dto.ReplyDto;
 import miniproject.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +23,8 @@ public class BoardController {
 
     //2. 게시물 전체 조회
     @GetMapping("/board/findall.do")
-    public List<BoardDto> findAll(@RequestParam int cno){
-        return boardService.findAll(cno);
+    public PageDto findAll(@RequestParam int cno, @RequestParam int page){
+        return boardService.findAll(cno,page);
     }
 
     //3. 게시물 개별 조회
