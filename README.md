@@ -44,7 +44,7 @@
 
 ## 6. ERD 캡처 사진
 
-
+![Image](https://github.com/user-attachments/assets/3b41b09b-65a6-4707-bde7-e88f875621be)
 
 ## 7. 프로젝트 실행 결과 녹화본
 
