@@ -18,7 +18,6 @@ const onFind = () => {
 };
 onFind();
 
-
 const onReplyWrite = () => {
   const rcontentInput = document.querySelector(".rcontentInput");
   const rcontent = rcontentInput.value;
@@ -41,3 +40,24 @@ const onReplyWrite = () => {
     });
 };
 
+const onReplyFindAll = () => {
+  const bno = new URL(location.href).searchParams.get("bno");
+  fetch(`/reply/findall.do?bno=${bno}`)
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      const replybox = document.querySelector(".replyBox");
+      let html = ``;
+      data.forEach((reply) => {
+        html += `<div class="card">
+					<span>${reply.rcontent}</span>
+					<span>${reply.mno}</span>
+				</div>`;
+      });
+      replybox.innerHTML = html;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+onReplyFindAll();

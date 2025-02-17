@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const postsContainer = document.querySelector(".posts-container");
         let html = "";
         data.forEach((board) => {
-          html += `<a href="/board/view?bno=${board.bno}" class="post">
+          html += `<a href="/view?bno=${board.bno}" class="post">
                     <div class="post-title">${board.btitle}</div>
                     <div class="post-author">${board.mid}</div>
                     <div class="post-comments">${board.bview}</div>
