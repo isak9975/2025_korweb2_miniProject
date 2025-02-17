@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((r) => r.json())
       .then((data) => {
         console.log(data);
-        const myboard = document.querySelector(".board");
+        const myboard = document.querySelector(".rightBox_content1");
         const myname1 = document.querySelector(".leftBtn");
         const myname2 = document.querySelector(".rightBtn");
         if (myname1 && myname2) {
@@ -26,14 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
           myname2.innerHTML = `${sessionUserName}님의 댓글 조회`;
         }
         if (myboard) {
-          let html =
-            '<div class="header"><div class="title">제목</div><div class="author">작성자</div><div class="date">작성일</div><div class="comments">댓글</div></div>';
+          let html = "";
           data.forEach((board) => {
             html += `<a href="/view?bno=${board.bno}" class="post">
-                      <div class="title">${board.btitle}</div>
-                      <div class="author">${board.mid}</div>
-                      <div class="date">${board.cdate}</div>
-                      <div class="comments">${board.bview}</div>
+                      <div class="post-title">${board.btitle}</div>
+                      <div class="post-date">${board.cdate}</div>
                     </a>`;
           });
           myboard.innerHTML = html;
@@ -48,4 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   findUserPosts();
+});
+
+const rightBtn = document.querySelector(".rightBtn");
+const leftBtn = document.querySelector(".leftBtn");
+const rightBox_content1 = document.querySelector(".rightBox_content1");
+const rightBox_content2 = document.querySelector(".rightBox_content2");
+
+leftBtn.addEventListener("mouseover", () => {
+  leftBtn.style.backgroundColor = "#dadada";
+  rightBtn.style.backgroundColor = "white";
+  rightBox_content1.style.display = "flex";
+  rightBox_content2.style.display = "none";
+});
+
+rightBtn.addEventListener("mouseover", () => {
+  leftBtn.style.backgroundColor = "white";
+  rightBtn.style.backgroundColor = "#dadada";
+  rightBox_content1.style.display = "none";
+  rightBox_content2.style.display = "flex";
 });

@@ -1,4 +1,4 @@
-console.log("체크2");
+console.log("myinfo.js 실행 확인");
 
 // 로그아웃
 const onLogout = () => {
