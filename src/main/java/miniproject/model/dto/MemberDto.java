@@ -15,6 +15,7 @@ public class MemberDto {
     // dto -> entity 변환 함수
     public MemberEntity toEntity() {
         return MemberEntity.builder()
+                .mno(this.mno)
                 .mid(this.mid)
                 .mpwd(this.mpwd)
                 .mname(this.mname)
