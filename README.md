@@ -52,7 +52,7 @@
 
 ![Image](https://github.com/user-attachments/assets/10ef5ccc-fced-4f24-afc0-e27fa0fc57d3)
 
-## 8. 스프레드 시트 주소
+## 8. 기획 및 설계서 스프레드 시트 주소
 
 https://docs.google.com/spreadsheets/d/1y0Qkkm64MAnUk9WBr0i1KObMo0kIFCwoCBlk-1ZKkAw/edit?usp=sharing
 
