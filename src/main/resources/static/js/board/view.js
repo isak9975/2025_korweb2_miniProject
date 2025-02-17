@@ -40,23 +40,24 @@ const onReplyWrite = () => {
     });
 };
 
-//replyBox
-//const onReplyFind = () => {
-//  const bno = new URL(location.href).searchParams.get("bno");
-//
-//  fetch(`/board/find.do?bno=${bno}`)
-//    .then((r) => r.json())
-//    .then((data) => {
-//      console.log(data);
-//      document.querySelector(".mnameBox").innerHTML = data.mname;
-//      document.querySelector(".bviewBox").innerHTML = data.bview;
-//      document.querySelector(".cdateBox").innerHTML = data.cdate;
-//
-//      document.querySelector(".btitle").innerHTML = data.btitle;
-//      document.querySelector(".bcontent").innerHTML = data.bcontent;
-//    })
-//    .catch((e) => {
-//      console.log(e);
-//    });
-//};
-//onFind();
+const onReplyFindAll = () => {
+  const bno = new URL(location.href).searchParams.get("bno");
+  fetch(`/reply/findall.do?bno=${bno}`)
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      const replybox = document.querySelector(".replyBox");
+      let html = ``;
+      data.forEach((reply) => {
+        html += `<div class="card">
+					<span>${reply.rcontent}</span>
+					<span>${reply.mno}</span>
+				</div>`;
+      });
+      replybox.innerHTML = html;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+onReplyFindAll();
