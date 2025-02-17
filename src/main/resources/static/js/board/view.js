@@ -18,6 +18,7 @@ const onFind = () => {
 };
 onFind();
 
+
 const onReplyWrite = () => {
   const rcontentInput = document.querySelector(".rcontentInput");
   const rcontent = rcontentInput.value;
@@ -39,3 +40,4 @@ const onReplyWrite = () => {
       }
     });
 };
+
