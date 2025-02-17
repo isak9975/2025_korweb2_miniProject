@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const myname1 = document.querySelector(".leftBtn");
         const myname2 = document.querySelector(".rightBtn");
         if (myname1 && myname2) {
-          myname1.innerHTML = `${sessionUserName}님의 게시글 조회`;
-          myname2.innerHTML = `${sessionUserName}님의 댓글 조회`;
+          myname1.innerHTML = `${data.mname}님의 게시글 조회`;
+          myname2.innerHTML = `${data.mname}님의 댓글 조회`;
         }
         if (myboard) {
           let html =
