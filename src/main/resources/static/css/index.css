@@ -115,12 +115,21 @@ main > article > div > p,
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
+.post{
+  display: flex;
+  flex-direction: row;
+}
 
 .board-item:last-child {
   border-bottom: none;
 }
 
-.comment-count {
+.post-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.post-author {
   margin-left: auto;
   color: #888;
 }
@@ -129,4 +138,14 @@ main > article > div > p,
   display: flex;
   justify-content: space-between;
   width: 100%;
+  text-decoration: none;
+}
+
+.posts-container-2,
+.posts-container-3,
+.posts-container-4,
+.posts-container-5 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
