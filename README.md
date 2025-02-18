@@ -57,5 +57,5 @@
 https://docs.google.com/spreadsheets/d/1y0Qkkm64MAnUk9WBr0i1KObMo0kIFCwoCBlk-1ZKkAw/edit?usp=sharing
 
 ## 9. 프로젝트 실행 결과 녹화본
-
+https://www.youtube.com/watch?v=Au1ogLVxfaM
 
